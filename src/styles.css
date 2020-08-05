@@ -18,7 +18,7 @@ button {
   width: 50%;
   border: none;
   padding: 1rem;
-  margin: 1rem auto;
+  margin: 6rem auto;
   text-align: center;
   font-size: 3rem;
   color: #646262;
@@ -31,21 +31,17 @@ button {
   background-image: url('./images/mountains.svg');
   background-size: cover;
   background-position: center;
-  transition: 0.5s ease-out;
-}
-
-.app.warm {
-  background-image: url('./images/cityNight.svg');
 }
 
 main {
+  position: relative;
   height: 100vh;
   background-image: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0.2),
     rgba(0, 0, 0, 0.2)
   );
-  padding: 25px;
+  padding: 1.5rem;
 }
 /* Animation  */
 .fadeInAnimation {
@@ -65,28 +61,49 @@ main {
 
 /* Date */
 .currentDate {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.514);
   font-size: 2rem;
-  display: inline-block;
-  position: absolute;
-  margin-top: auto;
-  top: 1rem;
-  left: 1rem;
+  font-weight: 800;
+  display: block;
 }
 /* Date */
-
+.app-description {
+  font-size: 3rem;
+  font-weight: 900;
+  color: white;
+  margin: 2rem 0;
+}
+.search-box div {
+  grid-area: currentDate;
+  justify-self: center;
+}
+.search-box p {
+  grid-area: appDes;
+}
+.search-box input {
+  grid-area: search-bar;
+}
+.search-box button {
+  grid-area: submit-button;
+}
+/* Mobile & Tablet Design */
 .search-box {
-  position: relative;
-  margin: 0 0 75px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas:
+    'currentDate currentDate'
+    'appDes appDes'
+    'search-bar submit-button';
   text-align: center;
 }
 .search-box .search-bar {
-  padding: 20px;
-  font-size: 1.8rem;
+  padding: 5px;
+  text-align: center;
   border: none;
   border-radius: 16px 0 0 16px;
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
   background: rgba(248, 248, 248, 0.514);
+  padding: 2rem 0;
 }
 /* button styling*/
 .submit-button {
@@ -94,14 +111,19 @@ main {
   text-transform: uppercase;
   text-decoration: none;
   background: #646262;
-  padding: 20px;
-  font-size: 1.8rem;
-  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
-  display: inline-block;
-  border: none;
   border-radius: 0 16px 16px 0;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+  display: block;
+  border: none;
   transition: all 0.4s ease 0s;
 }
+input:focus {
+  outline: none;
+}
+button:focus {
+  outline: none;
+}
+
 .submit-button:hover {
   background: #434343;
   letter-spacing: 1px;
@@ -115,14 +137,16 @@ main {
 /* weather Area */
 
 .weatherArea {
-  margin: 0 auto;
-  width: 50%;
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
 }
 .location {
   color: white;
-  font-size: 6rem;
-  font-weight: 500;
   text-align: center;
+  font-size: 5rem;
+  font-weight: 500;
   text-shadow: 0px 3px 0px #b2a98f, 0px 14px 10px rgba(0, 0, 0, 0.15),
     0px 24px 2px rgba(0, 0, 0, 0.1), 0px 34px 30px rgba(0, 0, 0, 0.1);
 }
@@ -133,17 +157,14 @@ main {
   text-align: center;
   font-size: 5rem;
 }
-.weather-box {
-  text-align: center;
-}
+
 .temp {
-  position: relative;
   display: inline-block;
   margin: 30px auto;
   border-radius: 16px;
   padding: 15px 25px;
   color: white;
-  font-size: 10rem;
+  font-size: 7rem;
   font-weight: 900;
   text-align: center;
   text-shadow: 0px 3px 0px #b2a98f, 0px 14px 10px rgba(0, 0, 0, 0.15),
@@ -153,9 +174,97 @@ main {
 .weather {
   text-align: center;
   color: white;
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 800;
   text-shadow: 0px 3px 0px #b2a98f, 0px 14px 10px rgba(0, 0, 0, 0.15),
     0px 24px 2px rgba(0, 0, 0, 0.1), 0px 34px 30px rgba(0, 0, 0, 0.1);
 }
 /* weather Area */
+
+/* Playlist */
+.playList {
+  width: 100%;
+  margin: 0 auto;
+  font-size: 3rem;
+  color: #fff;
+  text-align: center;
+  line-height: 1;
+}
+.playList iframe {
+  margin-top: 2rem;
+  box-shadow: 0px 0px 96px -45px rgba(255, 255, 255, 1);
+  max-height: 8rem;
+  max-width: 100%;
+}
+/* Playlist */
+/* Footer */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.637);
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Desktop Media Query */
+@media (min-width: 635px) {
+  main {
+    padding: 25px;
+  }
+  .search-box div {
+    justify-self: start;
+  }
+  .search-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      'currentDate appDes appDes .'
+      '. search-bar submit-button .';
+  }
+  .search-box .search-bar {
+    padding: 20px;
+    font-size: 1.8rem;
+    border: none;
+    border-radius: 16px 0 0 16px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+    background: rgba(248, 248, 248, 0.514);
+  }
+  /* button styling*/
+  .submit-button {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #646262;
+
+    font-size: 1.8rem;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    border: none;
+    border-radius: 0 16px 16px 0;
+    transition: all 0.4s ease 0s;
+  }
+  .playList iframe {
+    margin-top: 2rem;
+    box-shadow: 0px 0px 96px -45px rgba(255, 255, 255, 1);
+    max-height: 20rem;
+    max-width: 100rem;
+  }
+  /* desktop font size */
+  .weather {
+    font-size: 5rem;
+  }
+  .location {
+    font-size: 6rem;
+  }
+  .temp {
+    font-size: 10rem;
+  }
+  .playList {
+    font-size: 3rem;
+  }
+  .app-description {
+    font-size: 2.5rem;
+  }
+}

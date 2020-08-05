@@ -37,11 +37,15 @@ function App() {
       )
       .catch((error) => setWeather({ error, dataRecieved: false }));
   }
+
   return (
-    <div className='app '>
+    <div className='app'>
       <main>
         <div className='search-box'>
           <Date />
+          <p className='app-description'>
+            Match your music to the weather mood in your area.
+          </p>
           <input
             type='text'
             className='search-bar'
@@ -64,6 +68,7 @@ function App() {
         {weather.dataRecieved ? (
           <WeatherBox key={fade} weather={weather.info} />
         ) : null}
+        <footer>Made by Billy Lewis</footer>
       </main>
     </div>
   );
