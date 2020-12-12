@@ -3,6 +3,8 @@ import './styles.css';
 import Date from './components/Date';
 import WeatherBox from './components/WeatherBox';
 
+require('dotenv').config();
+
 function App() {
   const [zipInput, setZipInput] = useState('');
   const [weather, setWeather] = useState({
@@ -15,7 +17,7 @@ function App() {
   function fetchData(event) {
     const zipCode = event.target.value;
     setZipInput('');
-    const apiKey = '388841c28e943040b14b31523fc0e09c';
+    const apiKey = process.env.REACT_APP_API_KEY;
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&units=imperial&appid=${apiKey}`
     )
@@ -68,8 +70,8 @@ function App() {
         {weather.dataRecieved ? (
           <WeatherBox key={fade} weather={weather.info} />
         ) : null}
-        <footer>Made by Billy Lewis</footer>
       </main>
+      <footer>Made by Billy N. Lewis</footer>
     </div>
   );
 }
